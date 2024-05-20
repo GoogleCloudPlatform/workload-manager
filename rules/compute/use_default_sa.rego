@@ -19,7 +19,7 @@
 # TAGS: Defaults, Management, Compute Engine
 ########################################################################
 
-package templates.google.compute.serviceAccount.default
+package templates.google.compute.defaultserviceAccount
 
 import data.validator.google.lib as lib
 import data.validator.google.lib.parameters as gparam
