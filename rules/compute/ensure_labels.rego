@@ -38,8 +38,8 @@ deny [{"msg": message, "details": metadata}] {
 	exempt := {asset.name} & {ex | ex := exempt_list[_]}
 	not count(exempt) != 0
 
-	labels := lib.get_default(asset.resource.data, "labels", null)
-	labels == null
+	labels := lib.get_default(asset.resource.data, "labels", {})
+	count(labels) == 0
 
 	message:= "No Labels found"
 
