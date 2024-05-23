@@ -55,6 +55,7 @@ Refer Supported asset types and configs you can validate from CAI asset: https:/
 
 1. Download sample policies in your local environment.
 1. Customize /lib/parameters.rego with appropriate values/settings or create new rules based on sample policies.
+   1. Note: Ensure rules names are unique across your bucket.
 1. Upload these rules to a Cloud Storge bucket that you can access from  Workload Manager.
    1. If you're using Rego files directly, ensure that the /lib folder exists and only library functions are added in this folder.
    1. Under the subfolders, you can organize the rules however you want to.
