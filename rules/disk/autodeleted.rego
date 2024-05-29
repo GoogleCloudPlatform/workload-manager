@@ -25,8 +25,6 @@ import data.validator.google.lib as lib
 import data.validator.google.lib.parameters as gparam
 import future.keywords
 
-service_name = "compute"
-
 asset := input.asset
 
 asset_type := "compute.googleapis.com/Instance"
