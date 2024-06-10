@@ -23,6 +23,9 @@ import data.validator.gcp.lib as lib
 import data.validator.gcp.lib.parameters as gparam
 import future.keywords
 
+# This is customizable as needed. Select package names unique across namespaces for each rule. ideally an self-contained rego file.
+package templates.google.unique_package_name
+
 # Get inital values for policy example values from parameters.rego file
 params := lib.get_default(gparam.global_parameters, "compute", {})
 
