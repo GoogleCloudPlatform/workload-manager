@@ -33,7 +33,7 @@ params := lib.get_default(gparam.global_parameters, "cloud_storage", {})
 
 deny[{
 	"msg": "SetStorageClass lifecycle rules must have allowed classifications.",
-	"details": {"name": asset.name, "allowed": allowedClassifications},
+	"details": {"name": asset.name},
 }] {
 
 	# Check if resource is in exempt list
