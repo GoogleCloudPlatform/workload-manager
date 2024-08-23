@@ -1,11 +1,11 @@
 # Copyright 2024 Google LLC
-# 
+#
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
-# 
+#
 #     https://www.apache.org/licenses/LICENSE-2.0
-# 
+#
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -43,13 +43,16 @@ get_default(object, field, _default) = output {
 	output = _default
 }
 
-asset_type_should_be_skipped(asset_type) {
-	not get_default(input.asset, "asset_type", false)
-	get_default(input.asset, "assetType", false)
-	print(sprintf("WARNING: %v has assetType property set instead of asset_type", [input.asset.name]))
-}
+#this function will check for no-labels and missing labels from input parameters
+#params input is a set like {"a","b"}
 
-asset_type_should_be_skipped(asset_type) {
-	# Don't process the asset if it is not of the supplied type
-	not asset_type == get_default(input.asset, "asset_type", false)
+check_label(resource_input, params) = output {
+	count(resource_input) == 0
+	output := sprintf("No label detected, Ensure appropriate labels including must-have labels (%v) are applied.", [params])
+}
+else = output {
+	actual_labels:= {x|x:=resource_input[_]["key"]}
+	missing := params - actual_labels
+	count(missing) != 0
+	output := sprintf("Missing must-have labels: %v. Labels detected: %v .", [missing, actual_labels])
 }
