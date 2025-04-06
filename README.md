@@ -55,16 +55,18 @@ Refer Supported asset types and configs you can validate from CAI asset: https:/
 
 1. Download sample policies in your local environment.
 1. Customize /lib/parameters.rego with appropriate values/settings or create new rules based on sample policies.
-   1. Note: Ensure rules names are unique across your bucket.
+   1. Note: Ensure rule names are unique across your bucket.
 1. Upload these rules to a Cloud Storage bucket that you can access from  Workload Manager.
    1. If you're using Rego files directly, ensure that the /lib folder exists and only library functions are added in this folder.
    1. Under the subfolders, you can organize the rules however you want to.
-1. Create a new evaluation, select 'General' as the workload type, and  then select the bucket with rego rules from step 3.
-1. [Optional] You can configure BigQuery export for each evaluation. Ensure BQ Dataset is regional and in supported regions where Workload Manager is allowed to run evaluations.
-1. Select scope for this evaluation project/s.
-1. Select Rules you want to use in the evaluation.
+1. Create a new evaluation in Workload Manager, select 'Custom' as the workload type, and  then select the bucket with rego rules from step 3.
+1. [Optional] You can configure BigQuery export for each evaluation. Ensure the BigQuery dataset is regional and in supported regions where Workload Manager is allowed to run evaluations.
+1. Select scope for this evaluation (project(s), folder(s), or organization).
+1. Select the rules you want to use in the evaluation.
 1. [Optional] Select Scheduled frequency of the scan.
 1. [Optional] Select notification channel (Google Chat, email, pub/sub, etc)
-1. Click create.
+1. Click Create.
 1. If a schedule is not set, you can go to this evaluation and run an on-demand scan.
 1. Evaluation results will show up on the UI. Workload Manager maintains a historical record for each scan. You can see the same results in BigQuery exports if configured.
+
+For more information, see https://cloud.google.com/workload-manager/docs/evaluate/custom-rules/about-custom-rules.
