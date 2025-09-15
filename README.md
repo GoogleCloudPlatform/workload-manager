@@ -4,6 +4,13 @@ This repository contains sample rules that you can use with the Workload Manager
 
 If you need additional help in crafting more specific custom rules, please engage with your account teams who will help you navigate this request.
 
+## Product Overview Video:
+Documentation : <a href="https://Goo.gle/WLM" > Goo.gle/WLM </a>
+
+<a href="https://www.youtube.com/watch?v=sWwvdkLyA6A" >
+<img src="https://github.com/GoogleCloudPlatform/workload-manager/blob/main/Google%20Cloud%20WLM%20YT%20Thumbnail%20.png" width= 600>
+</a>
+
 Rego Rule Template:
 
 Ensure appropriate metadata are defined for each Rego rule.
